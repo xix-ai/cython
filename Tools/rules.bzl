@@ -56,7 +56,7 @@ def pyx_library(
         cmd = "PYTHONHASHSEED=0 $(location @cython//:cythonize) -k -i %s $(SRCS)" % extra_flags
               # Rename outputs to expected location.
               # TODO(robertwb): Add an option to cythonize itself to do this.
-              + """ && python -c 'import os, sys; n = len(sys.argv); [os.rename(src.split(".")[0] + ".so", dst) for src, dst in zip(sys.argv[1:], sys.argv[1+n//2:])]' $(SRCS) $(OUTS)""",
+              + """ && python3 -c 'import os, sys; n = len(sys.argv); [os.rename(src.split(".")[0] + ".so", dst) for src, dst in zip(sys.argv[1:], sys.argv[1+n//2:])]' $(SRCS) $(OUTS)""",
         tools = ["@cython//:cythonize"] + pxd_srcs,
     )
 

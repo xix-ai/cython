@@ -17,6 +17,7 @@ py_library(
         "Cython/Includes/**/*.pxd",
     ]),
     visibility = ["//visibility:public"],
+    srcs_version = "PY2AND3",
 )
 
 py_binary(
@@ -24,6 +25,7 @@ py_binary(
     srcs = ["cythonize.py"],
     visibility = ["//visibility:public"],
     deps = ["cython_lib"],
+    python_version = "PY3",
 )
 
 py_binary(
@@ -31,4 +33,5 @@ py_binary(
     srcs = ["cython.py"],
     visibility = ["//visibility:public"],
     deps = ["cython_lib"],
+    srcs_version = "PY3",
 )
